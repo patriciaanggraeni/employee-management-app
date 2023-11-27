@@ -113,7 +113,6 @@ public class FormLogin extends javax.swing.JFrame {
                         .addComponent(adminIcon)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formBackgroundLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(formLabel)
                         .addGap(34, 34, 34)))
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,6 +134,7 @@ public class FormLogin extends javax.swing.JFrame {
         getContentPane().add(Bakcgorund, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 712, 536));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed

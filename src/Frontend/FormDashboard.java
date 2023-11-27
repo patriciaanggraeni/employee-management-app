@@ -1,18 +1,22 @@
 package Frontend;
 import Backend.*;
+import java.awt.Color;
+import java.awt.Image;
+import javaswingdev.drawer.Drawer;
+import javaswingdev.drawer.DrawerController;
+import javaswingdev.drawer.DrawerItem;
 import javax.swing.*;
 
 public class FormDashboard extends javax.swing.JFrame {
+    
+    private DrawerController drawer;
 
     public FormDashboard() {
         initComponents();
+        showDrawerMenu();
         
         setResizable(false);
         setLocationRelativeTo(null);
-        
-        countAdmin();
-        countPegawai();
-        countPenggajian();
     }
 
     /**
@@ -24,458 +28,257 @@ public class FormDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        kGradientPanel4 = new keeptoo.KGradientPanel();
-        jPanel1 = new javax.swing.JPanel();
-        labMenuDashboard = new javax.swing.JLabel();
-        labMenuPegawai = new javax.swing.JLabel();
-        labMenuPenggajian = new javax.swing.JLabel();
-        labMenuLogout = new javax.swing.JLabel();
-        iconMenuDashboard = new javax.swing.JLabel();
-        iconMenuPegawai = new javax.swing.JLabel();
-        iconMenuPenggajian = new javax.swing.JLabel();
-        IconMenuLogout = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        adminName = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
-        jLabel12 = new javax.swing.JLabel();
-        labCountAdmin = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
-        labCountPegawai = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        kGradientPanel3 = new keeptoo.KGradientPanel();
-        jLabel11 = new javax.swing.JLabel();
-        labCountPenggajian = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        backgroundPanel = new javax.swing.JPanel();
+        headerPanel = new javax.swing.JPanel();
+        btnMenuDrawer = new javax.swing.JButton();
+        dashboardLabel = new javax.swing.JLabel();
+        userPicture = new main.ImageAvatar();
+        searchField = new javax.swing.JTextField();
+        employeePanelCounter = new javax.swing.JPanel();
+        employeeId = new javax.swing.JLabel();
+        imployeImage = new javax.swing.JLabel();
+        employeeCounter = new javax.swing.JLabel();
+        salaryPanelCounter = new javax.swing.JPanel();
+        salaryId = new javax.swing.JLabel();
+        salaryImage = new javax.swing.JLabel();
+        salaryCounter = new javax.swing.JLabel();
+        tableData = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setSize(new java.awt.Dimension(650, 500));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0, 120));
-        jPanel1.setPreferredSize(new java.awt.Dimension(280, 492));
+        backgroundPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        labMenuDashboard.setBackground(new java.awt.Color(255, 255, 255));
-        labMenuDashboard.setFont(new java.awt.Font("Nirmala UI", 1, 15)); // NOI18N
-        labMenuDashboard.setForeground(new java.awt.Color(225, 225, 225));
-        labMenuDashboard.setText("Dashboard");
-        labMenuDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labMenuDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labMenuDashboardMouseClicked(evt);
+        headerPanel.setBackground(new java.awt.Color(102, 102, 255));
+        headerPanel.setForeground(new java.awt.Color(102, 102, 255));
+
+        btnMenuDrawer.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenuDrawer.setFont(new java.awt.Font("Quicksand", 0, 12)); // NOI18N
+        btnMenuDrawer.setForeground(new java.awt.Color(102, 102, 255));
+        btnMenuDrawer.setText("| | |");
+        btnMenuDrawer.setActionCommand("");
+        btnMenuDrawer.setIconTextGap(2);
+        btnMenuDrawer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuDrawerActionPerformed(evt);
             }
         });
 
-        labMenuPegawai.setBackground(new java.awt.Color(255, 255, 255));
-        labMenuPegawai.setFont(new java.awt.Font("Nirmala UI", 1, 15)); // NOI18N
-        labMenuPegawai.setForeground(new java.awt.Color(225, 225, 225));
-        labMenuPegawai.setText("Pegawai");
-        labMenuPegawai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labMenuPegawai.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labMenuPegawaiMouseClicked(evt);
-            }
-        });
+        dashboardLabel.setFont(new java.awt.Font("Quicksand", 1, 20)); // NOI18N
+        dashboardLabel.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardLabel.setText("Dashboard");
 
-        labMenuPenggajian.setBackground(new java.awt.Color(255, 255, 255));
-        labMenuPenggajian.setFont(new java.awt.Font("Nirmala UI", 1, 15)); // NOI18N
-        labMenuPenggajian.setForeground(new java.awt.Color(225, 225, 225));
-        labMenuPenggajian.setText("Penggajian");
-        labMenuPenggajian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labMenuPenggajian.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labMenuPenggajianMouseClicked(evt);
-            }
-        });
+        userPicture.setBorderColor(new java.awt.Color(255, 255, 255));
+        userPicture.setBorderSize(2);
+        userPicture.setImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/admin.png"))); // NOI18N
+        userPicture.setPreferredSize(new java.awt.Dimension(50, 50));
 
-        labMenuLogout.setBackground(new java.awt.Color(255, 255, 255));
-        labMenuLogout.setFont(new java.awt.Font("Nirmala UI", 1, 15)); // NOI18N
-        labMenuLogout.setForeground(new java.awt.Color(225, 225, 225));
-        labMenuLogout.setText("Logout");
-        labMenuLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labMenuLogout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labMenuLogoutMouseClicked(evt);
-            }
-        });
-
-        iconMenuDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/dashboard (1).png"))); // NOI18N
-        iconMenuDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iconMenuDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iconMenuDashboardMouseClicked(evt);
-            }
-        });
-
-        iconMenuPegawai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/teamwork (1).png"))); // NOI18N
-        iconMenuPegawai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iconMenuPegawai.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iconMenuPegawaiMouseClicked(evt);
-            }
-        });
-
-        iconMenuPenggajian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/payment (1).png"))); // NOI18N
-        iconMenuPenggajian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iconMenuPenggajian.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iconMenuPenggajianMouseClicked(evt);
-            }
-        });
-
-        IconMenuLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/power (1).png"))); // NOI18N
-        IconMenuLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        IconMenuLogout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                IconMenuLogoutMouseClicked(evt);
-            }
-        });
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/profile-user (2).png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(iconMenuPenggajian)
-                            .addComponent(IconMenuLogout))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labMenuLogout)
-                            .addComponent(labMenuPenggajian, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel19)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(iconMenuDashboard)
-                                    .addComponent(iconMenuPegawai))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labMenuPegawai)
-                                    .addComponent(labMenuDashboard))))
-                        .addGap(6, 6, 6)))
-                .addGap(76, 76, 76))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel19)
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iconMenuDashboard)
-                    .addComponent(labMenuDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iconMenuPegawai)
-                    .addComponent(labMenuPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iconMenuPenggajian)
-                    .addComponent(labMenuPenggajian, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IconMenuLogout)
-                    .addComponent(labMenuLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Nirmala UI", 1, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("DASHBOARD");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(34, 34, 34))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel7)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
-        jPanel3.setBackground(new java.awt.Color(225, 225, 225, 150));
-
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Nirmala UI", 1, 20)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("WELCOME BACK");
-
-        adminName.setBackground(new java.awt.Color(255, 255, 255));
-        adminName.setFont(new java.awt.Font("Nirmala UI", 1, 20)); // NOI18N
-        adminName.setForeground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jLabel8)
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btnMenuDrawer, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(adminName)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addComponent(dashboardLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(userPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(adminName))
+        headerPanelLayout.setVerticalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(headerPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(userPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(headerPanelLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnMenuDrawer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dashboardLabel))))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        btnMenuDrawer.getAccessibleContext().setAccessibleName("");
+
+        searchField.setBackground(new java.awt.Color(255, 255, 255));
+        searchField.setFont(new java.awt.Font("Quicksand", 0, 15)); // NOI18N
+        searchField.setText("Cari");
+
+        employeePanelCounter.setBackground(new java.awt.Color(255, 102, 102));
+
+        employeeId.setFont(new java.awt.Font("Quicksand", 1, 15)); // NOI18N
+        employeeId.setForeground(new java.awt.Color(255, 255, 255));
+        employeeId.setText("Employee");
+
+        imployeImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/employee.png"))); // NOI18N
+
+        employeeCounter.setFont(new java.awt.Font("Quicksand", 1, 12)); // NOI18N
+        employeeCounter.setForeground(new java.awt.Color(255, 255, 255));
+        employeeCounter.setText("15");
+
+        javax.swing.GroupLayout employeePanelCounterLayout = new javax.swing.GroupLayout(employeePanelCounter);
+        employeePanelCounter.setLayout(employeePanelCounterLayout);
+        employeePanelCounterLayout.setHorizontalGroup(
+            employeePanelCounterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employeePanelCounterLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(employeePanelCounterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(employeeId)
+                    .addGroup(employeePanelCounterLayout.createSequentialGroup()
+                        .addComponent(imployeImage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(employeeCounter)))
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+        employeePanelCounterLayout.setVerticalGroup(
+            employeePanelCounterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, employeePanelCounterLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(employeePanelCounterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imployeImage)
+                    .addComponent(employeeCounter, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(employeeId)
                 .addContainerGap())
         );
 
-        jPanel5.setBackground(new java.awt.Color(225, 225, 225, 180));
+        salaryPanelCounter.setBackground(new java.awt.Color(51, 51, 255));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(225, 225, 225));
-        jLabel12.setText("Admin");
+        salaryId.setFont(new java.awt.Font("Quicksand", 1, 15)); // NOI18N
+        salaryId.setForeground(new java.awt.Color(255, 255, 255));
+        salaryId.setText("Salary");
 
-        labCountAdmin.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        labCountAdmin.setForeground(new java.awt.Color(225, 225, 225));
-        labCountAdmin.setText("0");
+        salaryImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salary.png"))); // NOI18N
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/profile-user (1).png"))); // NOI18N
+        salaryCounter.setFont(new java.awt.Font("Quicksand", 1, 12)); // NOI18N
+        salaryCounter.setForeground(new java.awt.Color(255, 255, 255));
+        salaryCounter.setText("15");
 
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel12)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labCountAdmin)
-                        .addGap(12, 12, 12)))
-                .addContainerGap(144, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(labCountAdmin))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(14, 14, 14))
-        );
-
-        labCountPegawai.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        labCountPegawai.setForeground(new java.awt.Color(225, 225, 225));
-        labCountPegawai.setText("0");
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(225, 225, 225));
-        jLabel16.setText("Pegawai");
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/teamwork (1).png"))); // NOI18N
-
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labCountPegawai)))
-                .addContainerGap(128, Short.MAX_VALUE))
-        );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout salaryPanelCounterLayout = new javax.swing.GroupLayout(salaryPanelCounter);
+        salaryPanelCounter.setLayout(salaryPanelCounterLayout);
+        salaryPanelCounterLayout.setHorizontalGroup(
+            salaryPanelCounterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salaryPanelCounterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(labCountPegawai))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(26, 26, 26))
+                .addGroup(salaryPanelCounterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(salaryId)
+                    .addGroup(salaryPanelCounterLayout.createSequentialGroup()
+                        .addComponent(salaryImage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(salaryCounter)))
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+        salaryPanelCounterLayout.setVerticalGroup(
+            salaryPanelCounterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salaryPanelCounterLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(salaryPanelCounterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(salaryImage)
+                    .addComponent(salaryCounter, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(salaryId)
+                .addContainerGap())
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(225, 225, 225));
-        jLabel11.setText("Penggajian");
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
+        jTable1.setFont(new java.awt.Font("Quicksand", 0, 15)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setSelectionBackground(new java.awt.Color(102, 102, 255));
+        jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setShowGrid(true);
+        jTable1.setShowHorizontalLines(true);
+        tableData.setViewportView(jTable1);
 
-        labCountPenggajian.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        labCountPenggajian.setForeground(new java.awt.Color(225, 225, 225));
-        labCountPenggajian.setText("0");
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/payment (1).png"))); // NOI18N
-
-        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
-        kGradientPanel3.setLayout(kGradientPanel3Layout);
-        kGradientPanel3Layout.setHorizontalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labCountPenggajian))
-                    .addComponent(jLabel11))
-                .addContainerGap(99, Short.MAX_VALUE))
+        javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
+        backgroundPanel.setLayout(backgroundPanelLayout);
+        backgroundPanelLayout.setHorizontalGroup(
+            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchField)
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addComponent(employeePanelCounter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(salaryPanelCounter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(tableData, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
         );
-        kGradientPanel3Layout.setVerticalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(labCountPenggajian))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addGap(14, 14, 14))
-        );
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        backgroundPanelLayout.setVerticalGroup(
+            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(employeePanelCounter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salaryPanelCounter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(254, 254, 254))
-        );
-
-        javax.swing.GroupLayout kGradientPanel4Layout = new javax.swing.GroupLayout(kGradientPanel4);
-        kGradientPanel4.setLayout(kGradientPanel4Layout);
-        kGradientPanel4Layout.setHorizontalGroup(
-            kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel4Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(kGradientPanel4Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        kGradientPanel4Layout.setVerticalGroup(
-            kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
+                .addComponent(tableData, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(kGradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void IconMenuLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconMenuLogoutMouseClicked
-        this.setVisible(false);
-        new FormLogout().setVisible(true);
-    }//GEN-LAST:event_IconMenuLogoutMouseClicked
-
-    private void iconMenuPenggajianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconMenuPenggajianMouseClicked
-        this.setVisible(false);
-        new FormPenggajian().setVisible(true);
-    }//GEN-LAST:event_iconMenuPenggajianMouseClicked
-
-    private void iconMenuPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconMenuPegawaiMouseClicked
-        this.setVisible(false);
-        new FormPegawai().setVisible(true);
-    }//GEN-LAST:event_iconMenuPegawaiMouseClicked
-
-    private void iconMenuDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconMenuDashboardMouseClicked
-        if (evt.getSource() == this) {
-            this.setVisible(true);
-        } else {
-            this.setVisible(false);
-        }
-    }//GEN-LAST:event_iconMenuDashboardMouseClicked
-
-    private void labMenuLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labMenuLogoutMouseClicked
-        this.setVisible(false);
-        new FormLogout().setVisible(true);
-    }//GEN-LAST:event_labMenuLogoutMouseClicked
-
-    private void labMenuPenggajianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labMenuPenggajianMouseClicked
-        this.setVisible(false);
-        new FormPenggajian().setVisible(true);
-    }//GEN-LAST:event_labMenuPenggajianMouseClicked
-
-    private void labMenuPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labMenuPegawaiMouseClicked
-        this.setVisible(false);
-        new FormPegawai().setVisible(true);
-    }//GEN-LAST:event_labMenuPegawaiMouseClicked
-
-    private void labMenuDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labMenuDashboardMouseClicked
-        if (evt.getSource() == this) {
-            this.setVisible(true);
-        } else {
-            this.setVisible(false);
-        }
-    }//GEN-LAST:event_labMenuDashboardMouseClicked
-
     
-    public JLabel getAdminName() {
-        return this.adminName;
+    private void showDrawerMenu() {
+        ImageIcon dashboardIcon = new ImageIcon(getClass().getResource("/Icons/dashboard.png"));
+        ImageIcon employeeIcon = new ImageIcon(getClass().getResource("/Icons/employee.png"));
+        ImageIcon salaryIcon = new ImageIcon(getClass().getResource("/Icons/salary.png"));
+        ImageIcon logoutIcon = new ImageIcon(getClass().getResource("/Icons/logout.png"));
+        
+            
+        drawer = Drawer.newDrawer(this)
+                .header(new HeaderMenu())
+                .addChild(new DrawerItem("Dashboard").icon(dashboardIcon).build())
+                .addChild(new DrawerItem("Employees").icon(employeeIcon).build())
+                .addChild(new DrawerItem("Salary").icon(salaryIcon).build())
+                .addFooter(new DrawerItem("Logout").icon(logoutIcon).build())
+                .drawerWidth(250)
+                .build();
     }
     
+    
+    
+    private void btnMenuDrawerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDrawerActionPerformed
+        if (drawer.isShow()) {
+            drawer.hide();
+        } else {
+            drawer.show();
+        }
+    }//GEN-LAST:event_btnMenuDrawerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -512,51 +315,22 @@ public class FormDashboard extends javax.swing.JFrame {
         });
     }
     
-    private void countAdmin() {
-        Admin admin = new Admin();
-        labCountAdmin.setText(admin.getInfoAdmin());
-        
-    }
-    
-    private void countPegawai() {
-        Pegawai pegawai = new Pegawai();
-        labCountPegawai.setText(pegawai.getInfoPegawai());
-    }
-    
-    private void countPenggajian() {
-        Penggajian penggajian = new Penggajian();
-        labCountPenggajian.setText(penggajian.getInfoPenggajian());
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IconMenuLogout;
-    private javax.swing.JLabel adminName;
-    private javax.swing.JLabel iconMenuDashboard;
-    private javax.swing.JLabel iconMenuPegawai;
-    private javax.swing.JLabel iconMenuPenggajian;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
-    private keeptoo.KGradientPanel kGradientPanel1;
-    private keeptoo.KGradientPanel kGradientPanel2;
-    private keeptoo.KGradientPanel kGradientPanel3;
-    private keeptoo.KGradientPanel kGradientPanel4;
-    private javax.swing.JLabel labCountAdmin;
-    private javax.swing.JLabel labCountPegawai;
-    private javax.swing.JLabel labCountPenggajian;
-    private javax.swing.JLabel labMenuDashboard;
-    private javax.swing.JLabel labMenuLogout;
-    private javax.swing.JLabel labMenuPegawai;
-    private javax.swing.JLabel labMenuPenggajian;
+    private javax.swing.JPanel backgroundPanel;
+    private javax.swing.JButton btnMenuDrawer;
+    private javax.swing.JLabel dashboardLabel;
+    private javax.swing.JLabel employeeCounter;
+    private javax.swing.JLabel employeeId;
+    private javax.swing.JPanel employeePanelCounter;
+    private javax.swing.JPanel headerPanel;
+    private javax.swing.JLabel imployeImage;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel salaryCounter;
+    private javax.swing.JLabel salaryId;
+    private javax.swing.JLabel salaryImage;
+    private javax.swing.JPanel salaryPanelCounter;
+    private javax.swing.JTextField searchField;
+    private javax.swing.JScrollPane tableData;
+    private main.ImageAvatar userPicture;
     // End of variables declaration//GEN-END:variables
 }
