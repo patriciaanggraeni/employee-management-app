@@ -4,6 +4,7 @@ package Frontend;
 import Backend.*;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class FormPegawai extends javax.swing.JFrame {
@@ -22,15 +23,15 @@ public class FormPegawai extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
-     public void kosongkanForm() {
-        inputNipPegawai.setText("");
-        inputEmailPegawai.setText("");
-        inputNoTelphPegawai.setText("");
-        inputNamaPegawai.setText("");
-        inputAlamatPegawai.setText("");
-
-        dataJabatan.setSelectedIndex(0);
-        dataGolongan.setSelectedIndex(0);        
+    public void kosongkanForm() {
+//        inputNipPegawai.setText("");
+//        inputEmailPegawai.setText("");
+//        inputNoTelphPegawai.setText("");
+//        inputNamaPegawai.setText("");
+//        inputAlamatPegawai.setText("");
+//
+//        dataJabatan.setSelectedIndex(0);
+//        dataGolongan.setSelectedIndex(0);
     }
     
     public void tampilkanData() {
